@@ -7,7 +7,7 @@ namespace GradientMethods
     {
         public delegate double Function(List<double> X);
 
-        static double df(Function F, List<double> X, int i) // метод знаходження часткової похідної
+        static double df(Function F, List<double> X, int i) // method of finding a partial derivative
         {
             if (X == null)
             {
@@ -24,7 +24,7 @@ namespace GradientMethods
             return (F(X_h) - F(X)) / step;
         }
 
-        static List<double> Gradient(Function F, List<double> X) // матриця Якобі
+        static List<double> Gradient(Function F, List<double> X) // Jacobi matrix
         {
             if (X == null)
             {
@@ -38,7 +38,7 @@ namespace GradientMethods
             return grad;
         }
 
-        static public List<List<double>> GetInvertibleMatrix(List<List<double>> A) // обернена матриця
+        static public List<List<double>> GetInvertibleMatrix(List<List<double>> A)// get invertible matrix 
         {
             if (A == null)
             {
@@ -84,10 +84,10 @@ namespace GradientMethods
                         }
                     }
                 }
-                A1 = MultiplyMatrix(A1, A);
+                A1 = MultMatrixes(A1, A);
             }
 
-            List<List<double>> CheckResultMutrix = MultiplyMatrix(OA, A);
+            List<List<double>> CheckResultMutrix = MultMatrixes(OA, A);
             bool isCorrect = true;
             for (int i = 0; i < n; i++)
             {
@@ -117,7 +117,7 @@ namespace GradientMethods
             return OA;
         }
 
-        static List<List<double>> UnitMatrix(int size) // одинична матриця 
+        static List<List<double>> UnitMatrix(int size)
         {
             List<List<double>> unit_matrix = new List<List<double>>();
             for (int i = 0; i < size; i++)
@@ -128,7 +128,7 @@ namespace GradientMethods
         }
 
 
-        static List<double> GetKoef(List<List<double>> A) // коефіцієнти характеристичного многочлена
+        static List<double> GetKoef(List<List<double>> A) // coefficients of the characteristic polynomial
         {
             if (A == null)
             {
@@ -147,7 +147,7 @@ namespace GradientMethods
                 S = 0.0d;
                 if (k > 0)
                 {
-                    AA = MultiplyMatrix(AA, A);
+                    AA = MultMatrixes(AA, A);
                 }
                 for (int i = 0; i < n; i++)
                 {
@@ -169,7 +169,7 @@ namespace GradientMethods
             return Koef;
         }
 
-        static List<List<double>> MultiplyMatrix(List<List<double>> A, List<List<double>> B)// множення двох матриць
+        static List<List<double>> MultMatrixes(List<List<double>> A, List<List<double>> B)
         {
             if (A == null)
             {
@@ -210,7 +210,7 @@ namespace GradientMethods
             return Result;
         }
 
-        static public double MultVec(List<double> A, List<double> B)// множення двох векторів
+        static public double MultVec(List<double> A, List<double> B)
         {
             if (A == null || B == null)
             {
@@ -229,7 +229,7 @@ namespace GradientMethods
             return Sum;
         }
 
-        static List<double> AddVec(List<double> X1, List<double> X2) // сумування двох векторів
+        static List<double> AddVec(List<double> X1, List<double> X2)
         {
             if (X1 == null || X2 == null)
             {
@@ -247,7 +247,7 @@ namespace GradientMethods
             return A;
         }
 
-        static List<double> SubVec(List<double> X1, List<double> X2) // віднімання двох векторів
+        static List<double> SubVec(List<double> X1, List<double> X2)
         {
             if (X1 == null || X2 == null)
             {
@@ -265,7 +265,7 @@ namespace GradientMethods
             return S;
         }
 
-        static List<double> MultVecOnVal(List<double> X, double val) // множення вектора на число
+        static List<double> MultVecOnVal(List<double> X, double val) // multiply vector on some value
         {
             if (X == null)
             {
@@ -278,7 +278,7 @@ namespace GradientMethods
             return X;
         }
 
-        static List<double> UnitVector(int size, int index) // одиничний вектор 
+        static List<double> UnitVector(int size, int index)
         {
             List<double> unit_vector = new List<double>();
             for (int i = 0; i < size; i++)
@@ -295,7 +295,7 @@ namespace GradientMethods
             return unit_vector;
         }
 
-        static public List<List<double>> Hessian(Function F, List<double> X) // матриця Гессе
+        static public List<List<double>> Hessian(Function F, List<double> X) // matrix of Hesse
         {
             if (F == null)
             {
@@ -347,55 +347,28 @@ namespace GradientMethods
             return hessian;
         }
 
-        //static public List<double> GradientDescent(Function F, List<double> X, double eps, double a, ref int iterAmount)
-        //{
-        //    double S = 0.0d;
-        //    List<double> G = Gradient(F, X);// градієнт
-        //    List<double> M1 = new List<double>(); // шукана точка
-        //    for (int i = 0; i < X.Count; i++)
-        //    {
-        //        M1.Add(X[i] - a * G[i]);
-        //        S += Math.Pow(G[i], 2);
-        //    }
-
-        //    double res1 = F(X);
-        //    double res2 = F(M1);
-
-        //    if (res2 >= res1) //перевірка монотонності
-        //    {
-        //        a /= 1.1;
-        //        return GradientDescent(F, X, eps, a, ref iterAmount);
-        //    }
-        //    iterAmount++;
-        //    if ((a >= eps) && (Math.Abs(Math.Sqrt(S)) >= eps))
-        //    {
-        //        return GradientDescent(F, M1, eps, 1.0d, ref iterAmount);
-        //    }
-        //    return M1;
-        //}
-
         static public List<double> GradientDescent(Function F, List<double> X, double eps, ref int iterAmount)
         {
             double S;
-            List<double> G = new List<double>();// градієнт
-            List<double> M0 = new List<double>(X);
-            List<double> M1 = new List<double>(); 
+            List<double> G = new List<double>();// gradient
+            List<double> M0 = new List<double>(X);// current point 
+            List<double> M1 = new List<double>(); // point to find
             double a = 1.0d;
             do
             {
                 S = 0.0d;
                 G = Gradient(F, M0);
-                M1 = new List<double>(); // шукана точка
+                M1 = new List<double>();
                 for (int i = 0; i < X.Count; i++)
                 {
-                    M1.Add(M0[i] - a * G[i]);
+                    M1.Add(M0[i] - a * G[i]); // step in the direction of the antigriant
                     S += Math.Pow(G[i], 2);
                 }
 
                 double res1 = F(M0);
                 double res2 = F(M1);
 
-                if (res2 >= res1) //перевірка монотонності
+                if (res2 >= res1) //check monotony
                 {
                     a /= 1.1;
                 }
@@ -412,7 +385,7 @@ namespace GradientMethods
 
         static public List<double> Newton(Function F, List<double> X, double eps, ref int iterAmount)
         {
-            List<double> G = Gradient(F, X); // градієнт
+            List<double> G = Gradient(F, X); 
             double S = 0.0d;
 
             for (int i = 0; i < X.Count; i++)
@@ -433,17 +406,31 @@ namespace GradientMethods
         }
     }
 }
-//List<List<double>> AA = GetInvertibleMatrix(Hessian(F, M0));
-//for (int i = 0; i < X.Count; i++)
+
+
+//static public List<double> GradientDescent(Function F, List<double> X, double eps, double a, ref int iterAmount) //a recursive variant of the gradient method (not optimal because the initialization of variables on each iteration causes stack overflow)
 //{
-//    for (int j = 0; j < X.Count; j++)
+//    double S = 0.0d;
+//    List<double> G = Gradient(F, X);
+//    List<double> M1 = new List<double>();
+//    for (int i = 0; i < X.Count; i++)
 //    {
-//        Console.Write(AA[i][j] + " ");
+//        M1.Add(X[i] - a * G[i]);
+//        S += Math.Pow(G[i], 2);
 //    }
-//    Console.WriteLine();
+
+//    double res1 = F(X);
+//    double res2 = F(M1);
+
+//    if (res2 >= res1) 
+//    {
+//        a /= 1.1;
+//        return GradientDescent(F, X, eps, a, ref iterAmount);
+//    }
+//    iterAmount++;
+//    if ((a >= eps) && (Math.Abs(Math.Sqrt(S)) >= eps))
+//    {
+//        return GradientDescent(F, M1, eps, 1.0d, ref iterAmount);
+//    }
+//    return M1;
 //}
-//Console.WriteLine($"{iterAmount} iteration");
-//Console.WriteLine($"G:  ({G[0].ToString()}, {G[1].ToString()})");
-//Console.WriteLine($"M1: ({M1[0].ToString()}, {M1[1].ToString()})");
-//Console.WriteLine("S = " + Math.Sqrt(S));
-//Console.WriteLine($"=====================================");
