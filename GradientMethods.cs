@@ -380,6 +380,16 @@ namespace GradientMethods
                 }
             }
             while ((a >= eps) && (Math.Abs(Math.Sqrt(S)) >= eps));
+            int epsNumb = 0;
+            while (eps < 1)
+            {
+                epsNumb++;
+                eps *= 10;
+            }
+            if (Math.Round(F(M0), epsNumb) != 0.0d)
+            {
+                throw new Exception("Gradient descent method: cannot find root!");
+            }
             return M0;
         }
 
@@ -394,6 +404,16 @@ namespace GradientMethods
             }
             if (Math.Abs(Math.Sqrt(S)) <= eps)
             {
+                int epsNumb = 0;
+                while (eps < 1) 
+                {
+                    epsNumb++;
+                    eps *= 10;
+                }
+                if (Math.Round(F(X), epsNumb) != 0.0d)
+                {
+                    throw new Exception("Newthons method: cannot find root!");
+                }
                 return X;
             }
             iterAmount++;
