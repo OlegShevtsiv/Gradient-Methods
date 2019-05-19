@@ -38,7 +38,7 @@ namespace GradientMethods
             return grad;
         }
 
-        static public List<List<double>> GetInvertibleMatrix(List<List<double>> A)// get invertible matrix 
+        static List<List<double>> GetInvertibleMatrix(List<List<double>> A)// get invertible matrix 
         {
             if (A == null)
             {
@@ -210,7 +210,7 @@ namespace GradientMethods
             return Result;
         }
 
-        static public double MultVec(List<double> A, List<double> B)
+        static double MultVec(List<double> A, List<double> B)
         {
             if (A == null || B == null)
             {
@@ -295,7 +295,7 @@ namespace GradientMethods
             return unit_vector;
         }
 
-        static public List<List<double>> Hessian(Function F, List<double> X) // matrix of Hesse
+        static List<List<double>> Hessian(Function F, List<double> X) // matrix of Hesse
         {
             if (F == null)
             {
