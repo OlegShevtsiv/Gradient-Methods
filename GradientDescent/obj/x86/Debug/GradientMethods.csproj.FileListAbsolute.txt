@@ -1,0 +1,12 @@
+/Users/mac/Desktop/GradientDescent/GradientDescent/obj/x86/Debug/GradientMethods.csproj.CoreCompileInputs.cache
+/Users/mac/Desktop/GradientDescent/GradientDescent/obj/x86/Debug/GradientDescent.exe
+/Users/mac/Desktop/GradientDescent/GradientDescent/obj/x86/Debug/GradientDescent.pdb
+/Users/mac/Desktop/GradientDescent/GradientDescent/obj/x86/Debug/GradientMethods.csprojResolveAssemblyReference.cache
+/Users/mac/Desktop/GradientDescent/GradientDescent/bin/Debug/GradientDescent.exe
+/Users/mac/Desktop/GradientDescent/GradientDescent/bin/Debug/GradientDescent.pdb
+/Users/mac/Desktop/Gradient-Methods/GradientDescent/bin/Debug/GradientDescent.exe
+/Users/mac/Desktop/Gradient-Methods/GradientDescent/bin/Debug/GradientDescent.pdb
+/Users/mac/Desktop/Gradient-Methods/GradientDescent/obj/x86/Debug/GradientMethods.csprojResolveAssemblyReference.cache
+/Users/mac/Desktop/Gradient-Methods/GradientDescent/obj/x86/Debug/GradientMethods.csproj.CoreCompileInputs.cache
+/Users/mac/Desktop/Gradient-Methods/GradientDescent/obj/x86/Debug/GradientDescent.exe
+/Users/mac/Desktop/Gradient-Methods/GradientDescent/obj/x86/Debug/GradientDescent.pdb

@@ -1,0 +1,15 @@
+﻿<Properties StartupConfiguration="{36D64A46-EBCD-490A-8D81-4E4E2005C437}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="GradientDescent/Program.cs">
+    <Files>
+      <File FileName="GradientDescent/Program.cs" Line="1" Column="1" />
+      <File FileName="GradientDescent/GradientMethods.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.ItemProperties.GradientMethods PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>
